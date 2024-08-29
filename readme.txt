@@ -1,39 +1,161 @@
-Migrations:
-A migration allows you to move databases from one design to another, this is also reversible
-So you can "migrate" databases
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #ccc;
+            overflow-x: auto;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .important {
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .note {
+            background-color: #3498db;
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
 
-Django Project != Django Application:
-    A django project is a collection of applications and configurations that when combined
-together will make up the full web application ( your complete website running with Django)
-    A Django Application is created to perform a particular functionality for your entire web application.
-        For example: You could have a registration app, a polling app, comments app, etc.
-    These Django Apps can then be plugged into other Django Projects, sou you can reuse them!
-Create a simple application with:
-    python manage.py startapp appname
-IMPORTANT: After creating your application, add your app's name to settings.py INSTALLED_APPS list
+    <h1>Django Notes</h1>
 
-After creating a view, you must map it to the urls.py file
+    <p>This page provides a quick reference guide for key concepts in Django, including migrations, projects vs. applications, views, URLs, and templates.</p>
 
-INSTEAD OF USING django.conf.urls, use django.urls (include,repath)
+    <hr>
 
-TEMPLATES
-will contain the static parts of an HTML page (skeleton)
-template tags -> Have their own special Syntax
-Syntax allows you to inject dynamic content that your Django App's views will produce, effecting the final HTML
-To get started with templates, you first need to create a "templates" directory and then a subdirectory
-for each specific app's templates
-   first_project/templates/first_app
-Now, let Django know of the templates by editing the DIR key inside of the TEMPLATES dictionary in settings.py
-We can now create an HTML file called index.html inside of the templates/first_app directory
-Inside this HTML we will insert template tag (a.k.a Django Template Variable)
-these template variables will allow us to inject content into the HTML directly from Django
-In order to achieve this, we will use the render() function and place int our original index() function in view.py
+    <h2>Migrations</h2>
+    <p><strong>Migrations</strong> are used to modify your database schema over time. They allow you to:</p>
+    <ul>
+        <li><strong>Move databases</strong> from one design to another.</li>
+        <li><strong>Revert</strong> to previous states, making database changes reversible.</li>
+    </ul>
 
+    <hr>
 
+    <h2>Django Project vs. Django Application</h2>
 
+    <h3>Django Project</h3>
+    <ul>
+        <li>A <strong>Django Project</strong> is a collection of applications and configurations that, when combined, create a full web application.</li>
+        <li>Your complete website running on Django is essentially a project.</li>
+    </ul>
 
+    <h3>Django Application</h3>
+    <ul>
+        <li>A <strong>Django Application</strong> is created to perform a specific functionality within your web application.</li>
+        <li>Examples include:
+            <ul>
+                <li>Registration App</li>
+                <li>Polling App</li>
+                <li>Comments App</li>
+            </ul>
+        </li>
+        <li><strong>Reusability:</strong> These apps can be reused across different Django Projects.</li>
+    </ul>
 
+    <p class="important">To create a new Django Application:</p>
+    <pre><code>python manage.py startapp appname</code></pre>
 
+    <p class="important">IMPORTANT: After creating your application, add your app's name to the <code>INSTALLED_APPS</code> list in <code>settings.py</code>.</p>
 
+    <hr>
 
+    <h2>Views and URLs</h2>
 
+    <p>After creating a view, it must be mapped to the <code>urls.py</code> file.</p>
+
+    <h3>URLs Configuration</h3>
+    <p><strong>Recommended Import:</strong></p>
+    <pre><code>from django.urls import include, path</code></pre>
+
+    <p><strong>Deprecated Import:</strong></p>
+    <pre><code>from django.conf.urls import include, path</code></pre>
+
+    <hr>
+
+    <h2>Templates</h2>
+
+    <p>Templates contain the static parts of an HTML page (the skeleton).</p>
+
+    <h3>Template Tags</h3>
+    <ul>
+        <li>Django template tags have a special syntax.</li>
+        <li>They allow you to inject dynamic content into your HTML, which is generated by your Django views.</li>
+    </ul>
+
+    <h3>Setting Up Templates</h3>
+    <ol>
+        <li><strong>Create a "templates" directory</strong> in your Django project.</li>
+        <li><strong>Create a subdirectory</strong> for each specific app's templates:
+            <pre><code>first_project/templates/first_app</code></pre>
+        </li>
+        <li><strong>Configure the Templates Directory</strong> in <code>settings.py</code>:
+            <pre><code>
+TEMPLATES = [
+    {
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        ...
+    },
+]
+            </code></pre>
+        </li>
+        <li><strong>Create the HTML File</strong>:
+            <ul>
+                <li>Example: <code>index.html</code> inside the <code>templates/first_app</code> directory.</li>
+            </ul>
+        </li>
+        <li><strong>Using Template Tags</strong>:
+            <ul>
+                <li>Use Django Template Variables to inject content into your HTML.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Rendering Templates</h3>
+    <p>Use the <code>render()</code> function in your views to render HTML templates:</p>
+    <pre><code>
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'first_app/index.html', context)
+    </code></pre>
+
+    <hr>
+
+    <p>This guide covers the basics to help you start building and organizing your Django projects efficiently. For more advanced topics, be sure to explore the Django documentation.</p>
+
+</body>
+</html>
