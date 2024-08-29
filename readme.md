@@ -14,17 +14,17 @@ A migration allows you to move databases from one design to another. This proces
 
 You can create a simple application with the following command:
 
-\`\`\`bash
+```bash
 python manage.py startapp appname
-\`\`\`
+```
 
 **IMPORTANT**: After creating your application, add your app's name to the \`INSTALLED_APPS\` list in \`settings.py\`.
 
 ## Mapping Views to URLs
 
-After creating a view, you must map it to the \`urls.py\` file.
+After creating a view, you must map it to the `urls.py` file.
 
-**Note**: Instead of using \`django.conf.urls\`, use \`django.urls\` (\`include\`, \`repath\`).
+**Note**: Instead of using `django.conf.urls`, use `django.urls\` (`include`, `repath`).
 
 ## Templates
 
@@ -34,7 +34,7 @@ Templates will contain the static parts of an HTML page (skeleton).
 
 Template tags have their own special syntax. This syntax allows you to inject dynamic content that your Django app's views will produce, affecting the final HTML.
 
-To get started with templates, you first need to create a \`templates\` directory and then a subdirectory for each specific app's templates:
+To get started with templates, you first need to create a `templates` directory and then a subdirectory for each specific app's templates:
 
 \`\`\`bash
 first_project/templates
