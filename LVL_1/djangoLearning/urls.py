@@ -11,11 +11,10 @@ inside of first_app folder. So we set a reference to the app, instead of listing
 from django.contrib import admin
 from django.urls import include, re_path
 
-
-from first_app import views
+from LVL_1.first_app import views
 
 urlpatterns = [
-    re_path(r'^$',views.index,name='index'), #added function in view here
-    re_path(r'^first_app/',include('first_app.urls')),
+    re_path(r'^$', views.index, name='index'), #added function in view here
+    re_path(r'^first_app/', include('LVL_1.first_app.urls')),
     re_path(r'^admin/', admin.site.urls),
 ]
