@@ -1,0 +1,24 @@
+__init__.py
+Blank Python script that due to its special name let's python know that this
+directory can be treated as a package
+
+admin.py
+Register your models which Django will then use with Django's admin interfaced
+
+app.py
+place application specific configuration
+
+models.py
+Store the application's data models
+specify entities and relationships between the data
+
+tests.py
+add a series of functions to test application's code
+
+views.py
+Function that handle requests and return responses
+
+migrations folder
+stores database specific information as it relates to the models
+
+
