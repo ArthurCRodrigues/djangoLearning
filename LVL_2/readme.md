@@ -18,7 +18,7 @@ To create an actual model, we use a class structure inside the relevant applicat
 
 ```python
 class Topic(models.Model):
-    top_name = models.CharField(max_length=264, unique=True)
+    top_name = models.CharField(max_length=264, unique=True) 
 
 class WebPage(models.Model):
     category = models.ForeignKey(Topic, on_delete=models.CASCADE)
@@ -28,6 +28,7 @@ class WebPage(models.Model):
     def __str__(self):
         return self.name
 ```
+``unique = True`` denotes a primary key
 
 ### SQL Database Overview
 
@@ -79,7 +80,14 @@ With the models and database created, you can use Django's Admin Interface to in
 ```bash
 python manage.py createsuperuser
 ```
+You will have to provide a name, email and password, make sure to remember them.
 
 ### Populating the Database with Test Data
 
-Once you've set up the models, it's always a good idea to populate them with some test data using the Faker Library."
+Once you've set up the models, it's always a good idea to populate them with some test data using the Faker Library.
+It is usually a good idea to create a script that will populate your models with some "dummy" data.
+
+```bash
+pip install Faker
+```
+
