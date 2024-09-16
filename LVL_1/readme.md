@@ -21,6 +21,9 @@ python manage.py startapp appname
 **IMPORTANT**: After creating your application, add your app's name to the \`INSTALLED_APPS\` list in \`settings.py\`.
 ## Django Views
 Django views are python functions that take HTTP requests and return HTTP response, like HTML documents.
+A web page that uses Django is full of views with different tasks and missions.
+
+Views are usually put in a file called `views.py` located on your app's folder.
 
 ## Mapping Views to URLs
 
