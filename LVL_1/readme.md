@@ -33,7 +33,7 @@ After creating a view, you must map it to the \`urls.py\` file.
 
 ## Templates
 
-Templates will contain the static parts of an HTML page (skeleton).
+Templates will contain the static parts of an HTML page (skeleton). By combining views to templates, you're able to generate dynamic HTML content after API calls. You can do this by using template tags.
 
 ### Template Tags
 
