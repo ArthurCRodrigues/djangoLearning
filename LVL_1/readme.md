@@ -1,3 +1,7 @@
+# Files and their purpose
+When creating your first Django project, you may find yourself with a bunch of unknown files and folder and get yourself asking what they're for. Here's what all the files are made for: 
+  
+
 ## Migrations
 
 A migration allows you to move databases from one design to another. This process is also reversible, so you can "migrate" databases back if needed.
