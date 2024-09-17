@@ -58,7 +58,7 @@ Views are usually put in a file called `views.py` located on your app's folder.
 
 ## Mapping Views to URLs
 
-After creating a view, you must map it to the \`urls.py\` file.
+After creating a view, you must map it to the `urls.py` file.
 
 **Note**: Instead of using `django.conf.urls`, use `django.urls` (`include`, `repath`).
 
