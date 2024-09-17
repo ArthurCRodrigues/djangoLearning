@@ -1,6 +1,3 @@
-# Files and their purpose
-When creating your first Django project, you may find yourself with a bunch of unknown files and folder and get yourself asking what they're for. Here's what all the files are made for: 
-  
 
 ## Migrations
 
@@ -21,6 +18,36 @@ You can create a simple application with the following command:
 ```bash
 python manage.py startapp appname
 ```
+> ### Files and their purpose
+> When creating your first Django project, you may find yourself with a bunch of unknown files and folder and get yourself asking what they're for. Here's what
+> all the files are made for: 
+> - `__init__.py`<br>
+> Blank Python script that due to its special name let's python know that this
+> directory can be treated as a package
+
+> - `admin.py` <br>
+> Register your models which Django will then use with Django's admin interfaced
+
+> - `app.py` <br>
+> place application specific configuration
+
+> - `models.py` <br>
+> Store the application's data models
+> specify entities and relationships between the data
+
+> - `tests.py` <br>
+> add a series of functions to test application's code
+
+> - `views.py` <br>
+> Function that handle requests and return responses
+
+> **migrations folder**
+> stores database specific information as it relates to the models
+
+
+
+
+
 
 **IMPORTANT**: After creating your application, add your app's name to the \`INSTALLED_APPS\` list in \`settings.py\`.
 ## Django Views
