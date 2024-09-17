@@ -55,6 +55,7 @@ Django views are python functions that take HTTP requests and return HTTP respon
 A web page that uses Django is full of views with different tasks and missions.
 
 Views are usually put in a file called `views.py` located on your app's folder.
+Here's a basic view called index: 
 ```python
 from django.http import HttpResponse
 
