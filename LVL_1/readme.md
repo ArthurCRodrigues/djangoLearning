@@ -70,6 +70,16 @@ def index(request):
 After creating a view, you must map it to the `urls.py` file.
 
 **Note**: Instead of using `django.conf.urls`, use `django.urls` (`include`, `repath`).
+#### **`appname/views.py`**
+``` python
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path("", views.index, name="index"),
+]
+```
 
 ## Templates
 
