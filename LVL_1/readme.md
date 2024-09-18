@@ -67,10 +67,11 @@ def index(request):
 
 ## Mapping Views to URLs
 
-After creating a view, you must map it to the `urls.py` file.
+After creating a view, you must map it to the `urls.py` file in order to access it in a browser. URL configurations (views mapping) are defined inside each Django app. 
+`urls.py` file must be created inside your app's directory.
 
-**Note**: Instead of using `django.conf.urls`, use `django.urls` (`include`, `repath`).
-#### **`appname/views.py`**
+
+#### **`appname/urls.py`**
 ``` python
 from django.urls import path
 
@@ -80,6 +81,18 @@ urlpatterns = [
     path("", views.index, name="index"),
 ]
 ```
+***Next Step*** is to configure the global URL configuration in your project to include the URLconf defined in your app's `urls.py`.  
+#### **`projectname/urls.py`**
+``` python
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path("polls/", include("polls.urls")),
+    path("admin/", admin.site.urls),
+]
+```
+> `include()` function allows referencing other URL configurations. Making it easy to plug-and-play URLs. You should always use `include()` when you include other URL patterns.  
 
 ## Templates
 
