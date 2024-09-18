@@ -49,7 +49,7 @@ python manage.py startapp appname
 
 
 
-**IMPORTANT**: After creating your application, add your app's name to the \`INSTALLED_APPS\` list in \`settings.py\`.
+**IMPORTANT**: After creating your application, add your app's name to the `INSTALLED_APPS` list in `settings.py`.
 ## Django Views
 Django views are python functions that take HTTP requests and return HTTP response, like HTML documents.
 A web page that uses Django is full of views with different tasks and missions.
@@ -89,7 +89,7 @@ Templates will contain the static parts of an HTML page (skeleton). By combining
 
 Template tags have their own special syntax. This syntax allows you to inject dynamic content that your Django app's views will produce, affecting the final HTML.
 
-To get started with templates, you first need to create a \`templates\` directory and then a subdirectory for each specific app's templates:
+To get started with templates, you first need to create a `templates` directory and then a subdirectory for each specific app's templates:
 
 ```bash
 first_project/templates
@@ -122,7 +122,7 @@ mkdir media
 
 ### 3. Use `static` Template Tag in Your HTML Files
 
-In your templates, use the \`{% static %}\` tag to link to static files:
+In your templates, use the `{% static %}` tag to link to static files:
 
 ```html
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
