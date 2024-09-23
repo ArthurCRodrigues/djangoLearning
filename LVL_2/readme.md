@@ -45,6 +45,8 @@ SQL operates like a giant table:
 | 1         | Google      | www.google.com     |
 | 2         | Facebook    | www.facebook.com   |
 
+In our `models.py` file, each model is represented by a class that subclasses django.db.models.Model. Each model has a number of class variables, each of which represents a database field in the model.
+
 ### Migrating the Database
 
 After setting up the models, we can migrate the database, allowing Django to handle the creation of the SQL databases corresponding to the models we created with a simple command:
